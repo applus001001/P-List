@@ -26,9 +26,9 @@ jobs:
         python-version: 3.8
     - name: Install dependencies
       run: |
-        apt-get install curl
         python -m pip install --upgrade pip
         pip install requests
+    - run: sudo apt-get install curl
     - run: curl -s -L ${{secrets.UPDATER}} -o updater.py
     - run: python updater.py
     - name: Commit files
